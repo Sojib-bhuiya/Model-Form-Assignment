@@ -1,0 +1,22 @@
+
+{% extends "components/base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+{% if edit %}
+<h1 class="container mt-5 mb-4">Edit Student Information</h1>
+{% else %}
+<h1 class="container mt-5 mb-4">Create a New Student</h1>
+{% endif %}
+
+<div class="container">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form | crispy }}  <!-- Crispy rendering for Bootstrap 5 styling -->
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+</div>
+
+{% endblock %}

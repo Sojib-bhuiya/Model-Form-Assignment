@@ -1,0 +1,27 @@
+{% extends "components/base.html" %}
+
+{% block content %}
+
+<h1 class="container mt-5 mb-4">Students List</h1>
+
+<div class="container d-flex flex-wrap justify-content-between">
+
+    {% for member in  members %}
+
+        <div class="card mt-3" style="width: 18rem; ">
+            <div class="card-body">
+                <h5 class="card-title">Name: {{ member.name }}</h5>
+                <p class="card-subtitle mt-2 text-body-secondary"><b>Email:</b> {{ member.email }}</p>
+                <p class="card-text mt-2 text-body-secondary"><b>Phone:</b> {{ member.phone }}</p>
+                <p class="card-text mt-2 text-body-secondary"><b>Course:</b> {{ member.course }}</p>
+                <a href="{% url 'edit' id=member.id%}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'delete' id=member.id%}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    
+    {% endfor %}
+</div>
+
+
+{% endblock  %}
+
